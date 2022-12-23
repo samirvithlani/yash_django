@@ -10,7 +10,7 @@ class Employee(models.Model):
     class Meta:
         db_table = 'employee'
         
-    def __str(self):
+    def __str__(self):
         return self.name    
         
 #one to one
