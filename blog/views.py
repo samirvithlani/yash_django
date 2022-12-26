@@ -36,8 +36,37 @@ def index(request):
     #desc
     #employee = Employee.objects.order_by(Coalesce('salary','age').desc()).values()
     #employee  = Employee.objects.all().order_by('name','-age').values()
-    employee = Employee.objects.all().reverse().values()
-    print(employee)
+    #employee = Employee.objects.all().reverse().values()
+    #save data
+    #
+    #insert query
+    #employee = Employee(name="Rahul",email="rahul@gmail.com",age=25,salary=50000)
+    #employee.save()
+    #delete 
+    #select * from employee where id =1
+    #select * from employee where name = "Rahul"
+    #employee = Employee.objects.get(name="raj")
+    #print(employee)
+    #delete query
+    #deleet from employee where name = "Rahul"
+    #employee.delete()
+    #update
+    #employee = Employee.objects.all().values_list()
+    #old record....
+    #employee = Employee.objects.get(id=3)
+    #name value set...
+    #employee.name ="Manisha"
+    #employee.save()
+    res = Employee.objects.filter(age__gte=24).update(salary=45000)
+    
+    if res>0:
+        print("updated recoed....",res)
+    else:
+        print("record not updated....")
+           
+        
     
     
+    #print(employee)
+    print("employee deleted....") 
     return render(request, 'blog/index.html')
