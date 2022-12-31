@@ -10,10 +10,11 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">NAME</th>
-            <th scope="col">EMAIL</th>
+            {% comment %} <th scope="col">EMAIL</th> {% endcomment %}
             <th scope="col">ROLLNO</th>
-            <th scope="col">PER</th>
-            <th scope="col">STATUS</th>
+            {% comment %} <th scope="col">PER</th>
+            <th scope="col">STATUS</th> {% endcomment %}
+            <th scope="col">ACTION</th>
           </tr>
         </thead>
         <tbody>
@@ -22,10 +23,15 @@
           <tr>
             <th scope="row">{{student.id}}</th>
             <td>{{student.name}}</td>
-            <td>{{student.email}}</td>
+            {% comment %} <td>{{student.email}}</td> {% endcomment %}
             <td>{{student.roll}}</td>
-            <td>{{student.per}}</td>
-            <td>{{student.status}}</td>
+            {% comment %} <td>{{student.per}}</td>
+            <td>{{student.status}}</td> {% endcomment %}
+            <td>
+              <a href = "{% url 'student_delete' student.id %}"class="btn btn-danger">DELETE</a>
+              <a href = "{% url 'student_detail' student.id %}"class="btn btn-info">DETAIL</a>
+              <a href = "{% url 'student_update' student.id %}"class="btn btn-primary">UPDATE</a>
+            </td>
           </tr>
           {% endfor %}
           
