@@ -16,11 +16,22 @@ def create_student_view(request):
 
 
 def student_list_view(request):
+    print("hello")
     context = {}
     students = Student.objects.all().values()
     context['students'] = students
     return render(request,"crud/student_list.html",context)
+
+
+def student_list_sort(request):
+
+    print("sort")
+    context ={}
+    student = Student.objects.all().order_by('-roll').values()
+    context['students'] = student
+    return render(request,"crud/student_list.html",context)
     
+        
 def student_delete_view(request,id):
     context = {}
     student = Student.objects.get(id=id)
