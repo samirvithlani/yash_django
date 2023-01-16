@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from .views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/',include('blog.urls')),
-    path('crud/',include('crud.urls')),
-    path('cbv/',include('cbv.urls')),
-    path('user/',include('user.urls')),
     
+    path('managersignup/',ManagerSignUpView.as_view(),name='manager_signup'),
 ]

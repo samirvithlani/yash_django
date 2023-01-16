@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'crud',
     'crispy_forms',
-    'cbv'
+    'cbv',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+#auth_user table -->
+AUTH_USER_MODEL = 'user.User'
+
