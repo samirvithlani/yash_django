@@ -138,4 +138,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #auth_user table -->
 AUTH_USER_MODEL = 'user.User'
+LOGIN_REDIRECT_URL = '/crud/list'
 

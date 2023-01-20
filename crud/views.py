@@ -1,6 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect
 from .forms import StudentForm
 from .models import Student
+from django.contrib.auth.decorators import login_required
+from user.decorators import manager_required
 
 # Create your views here.
 
@@ -14,7 +16,8 @@ def create_student_view(request):
     context['form'] = form
     return render(request,"crud/create_student.html",context)    
 
-
+@login_required(login_url='/user/login/')
+@manager_required
 def student_list_view(request):
     print("hello")
     context = {}

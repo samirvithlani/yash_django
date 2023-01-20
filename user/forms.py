@@ -15,3 +15,14 @@ class ManagerSignUpForm(UserCreationForm):
         return user
     
 #worker    
+class WorkeeSignupForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+        
+    
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_worker = True
+        user.save()
+        return user    
