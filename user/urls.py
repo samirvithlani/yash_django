@@ -18,6 +18,7 @@ from django.urls import path,include
 from .views import *
 #logoutview
 from django.contrib.auth.views import LogoutView
+from . import views
 
 urlpatterns = [
     
@@ -25,4 +26,5 @@ urlpatterns = [
     path('workersignup/',WorkerSignView.as_view(),name='worker_signup'),
     path('login/',UserLoginView.as_view(),name='login'),
     path('logout/',LogoutView.as_view(),name='logout'),
+    path('sendmail/',views.sendMail,name='sendmail'),
 ]

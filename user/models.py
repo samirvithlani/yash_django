@@ -6,6 +6,8 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_manager = models.BooleanField(default=False)
     is_worker = models.BooleanField(default=False)
+    age = models.IntegerField(null=True)
+    salary = models.IntegerField(null=True)
     
     #meta
 class Manager(models.Model):

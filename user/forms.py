@@ -5,6 +5,7 @@ from django.db import transaction
 class ManagerSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username','email','password1','password2','age')
     
     
     @transaction.atomic
@@ -18,6 +19,7 @@ class ManagerSignUpForm(UserCreationForm):
 class WorkeeSignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('username','email','password1','password2','salary')
         
     
     @transaction.atomic
