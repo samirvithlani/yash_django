@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Contacts
+from .models import Contacts,AddPhoto
 from django.views.generic.edit import CreateView,DeleteView,UpdateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -33,3 +33,14 @@ class ContactUpdateView(UpdateView):
     template_name = 'cbv/contact_Updateform.html'
     success_url = '/cbv/contactlist/'
   
+class AddImage(CreateView):
+    model = AddPhoto
+    fields = '__all__'  
+    success_url = '/cbv/contactlist/'
+    template_name = 'cbv/add_image.html'
+    
+class getAllImages(ListView):
+    model = AddPhoto
+    context_object_name = 'images'
+    template_name = 'cbv/get_all_images.html'
+        

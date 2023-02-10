@@ -127,8 +127,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 STATICFILES_DIRS = [
     STATIC_DIR,
+    
 ]
 
 # Default primary key field type
@@ -138,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #auth_user table -->
 AUTH_USER_MODEL = 'user.User'
-LOGIN_REDIRECT_URL = '/crud/list'
+#LOGIN_REDIRECT_URL = '/crud/list'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

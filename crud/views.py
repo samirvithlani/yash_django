@@ -6,6 +6,7 @@ from user.decorators import manager_required
 
 # Create your views here.
 
+#supplier view
 def create_student_view(request):
     context = {}
     form = StudentForm(request.POST or None)

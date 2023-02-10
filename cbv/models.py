@@ -16,3 +16,16 @@ class Contacts(models.Model):
     
     class Meta:
         db_table = 'contacts'
+
+
+class AddPhoto(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/')
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = 'addPhoto'
+    
+   

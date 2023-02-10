@@ -1,0 +1,8 @@
+{% load static %}
+<ul>
+  {% for i in images %}
+  <li>{{i.name}}</li>
+  <img src ="{{i.image.url}}" alt="image" width="100" height="100">
+  {% endfor %}
+  <ul></ul>
+</ul>
