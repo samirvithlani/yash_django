@@ -10,6 +10,7 @@ class Contacts(models.Model):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     pincode = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
     
     def __str__(self):
         return self.name

@@ -5,9 +5,11 @@ from django.views.generic.edit import CreateView,DeleteView,UpdateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from user.decorators import manager_required
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
-@method_decorator([login_required(login_url="/user/login"),manager_required],name='dispatch')
+# @method_decorator([login_required(login_url="/user/login"),manager_required],name='dispatch')
 class ContactListView(ListView):
     model = Contacts
     template_name = 'cbv/contact_list.html'
@@ -24,7 +26,10 @@ class ContactCreateView(CreateView):
    
 class ContactDeleteView(DeleteView):
     model = Contacts
-    template_name = 'cbv/contact_delete.html'
+    
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+    
     success_url = '/cbv/contactlist/'    
 
 class ContactUpdateView(UpdateView):
