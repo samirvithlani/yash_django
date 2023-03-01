@@ -29,4 +29,21 @@ class AddPhoto(models.Model):
     class Meta:
         db_table = 'addPhoto'
     
-   
+class Recipe(models.Model):
+    name = models.CharField(max_length=100)
+    ingredients = models.CharField(max_length=100)
+    instructions = models.CharField(max_length=100)
+    
+    class Meta:
+        db_table = 'recipe'
+
+
+
+
+class Product2(models.Model):
+    name = models.CharField(max_length=255)
+    quantity = models.IntegerField(default=0)
+    
+    class Meta:
+        db_table = 'product2'
+       

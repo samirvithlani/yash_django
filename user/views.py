@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 #import reverse
 from django.urls import reverse_lazy
 
+from django.views.generic import ListView
 # Create your views here.
 class ManagerSignUpView(CreateView):
     model = User
@@ -34,6 +35,16 @@ class ManagerSignUpView(CreateView):
         return redirect('/crud/list/')
     
 
+class GetWorkers(ListView):
+    #get workers
+    
+    def get_queryset(self):
+        worker = User.objects.filter(is_worker=True)
+        return worker
+    context_object_name = 'workers'
+    template_name = 'user/getworkers.html'
+        
+    
 class WorkerSignView(CreateView):
     model = User
     form_class = WorkeeSignupForm
